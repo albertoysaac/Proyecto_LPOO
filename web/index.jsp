@@ -33,9 +33,9 @@
 
                 <nav class="menu">
                     <ul>
-                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.jsp">Inicio</a></li>
                         <li><a href="productos.html">Productos</a></li>
-                        <li><a href="reservaciones.html">Reservaciones</a></li>
+                        <li><a href="reservaciones.jsp">Reservaciones</a></li>
                     </ul>
                 </nav> 
         

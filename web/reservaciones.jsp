@@ -4,8 +4,8 @@
     Author     : alber
 --%>
 
-<%@page import="datos.Cliente"%>
-<%@page import="datos.Estilista"%>
+<%@page import="modelos.Estilista"%>
+<%@page import="modelos.Cliente"%>
 <%@page import="java.sql.Time"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="datos.OperacionBD"%>
@@ -43,11 +43,13 @@
 
         <main>
             <div class="Ventana">
+                
                 <div class="seleccion">
                     <h2>Reservaciones</h2>
                     <input type="button" value="Constultar reservacion">
                     <input type="button" value="Hacer una reservacion">
                 </div>
+                
                 <div class="consulta">
                     <h2>Consulta de reservaciones</h2>
                     <form action="datos_cliente">
@@ -55,6 +57,11 @@
                         <input type="text" id="idReserva" required>
                         <input class="enviar" type="submit" value="Consultar">
                     </form>
+                    <%
+                        
+                        
+                        
+                    %>
                 </div>
                 <div class="reservacion">
                     <div class="datos del cliente">
@@ -72,14 +79,10 @@
                             OperacionBD operacion = new OperacionBD();
                             ArrayList<Estilista> estilistas = operacion.consultarEstilistas();
                             for (Estilista estilista : estilistas) {
+                                int id = estilista.getId();
                                 String nombre = estilista.getNombre();
                                 Time horario = estilista.getHorario();
-                                out.println("<li><div class="tarjeta">
-                                    <img src='imagenes/' alt=''>
-                                    <h2>" + nombre + "</h2>
-                                    <p>Horario: " + horario + "</p>
-                                    <input type='button' value='Seleccionar'>
-                                </div></li>");
+                                out.println("<li><div class='tarjeta'<img src='imagenes/"+id+"'"+"><h2>" + nombre + "</h2><p>Horario: " + horario + "</p><input type='button' value='Seleccionar'></div></li>");
                             }
                         %>
                         </ul>
