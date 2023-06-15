@@ -61,7 +61,7 @@ public class OperacionBD {
     } 
     
     
-   /*Bloque de consultas a la tabla Cliente*/
+/*Bloque de consultas a la tabla Cliente*/
     
     public boolean agregarCliente (Cliente cliente){
         boolean estado = false;
@@ -100,7 +100,8 @@ public class OperacionBD {
         return clientes;
     }
     
-     /*Bloque de consultas a la tabla Estilista*/
+    
+/*Bloque de consultas a la tabla Estilista*/
     
     
     public ArrayList<Estilista> consultarEstilistas(){
@@ -112,7 +113,7 @@ public class OperacionBD {
             ResultSet rs = st.executeQuery(q);
             while(rs.next()){
                 Estilista estilista = new Estilista();
-                estilista.setId(rs.getInt("id_c"));
+                estilista.setId(rs.getInt("id_e"));
                 estilista.setNombre(rs.getString("nombre"));
                 estilista.setHorario(rs.getTime("horario"));
                 estilistas.add(estilista);
@@ -125,7 +126,6 @@ public class OperacionBD {
     
             
     public int reservacionp1 (Cliente cliente, Estilista estilista,Time horario){
-        boolean estado = false;
         PreparedStatement ps;
         String q ="INSERT INTO reservaciones (idCliente, idEstilista, horario) Values(?,?,?)";
         int id_r = 0;
@@ -135,8 +135,6 @@ public class OperacionBD {
             ps.setInt(2, estilista.getId());
             ps.setTime(3, horario);
             ps.executeUpdate();
-            estado = true;
-            
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
                 id_r = rs.getInt(1);
@@ -149,15 +147,12 @@ public class OperacionBD {
     }
     
     public int reservacionp2 (int id_r, int id_p){
-        boolean estado = false;
         PreparedStatement ps;
         String q = "INSERT INTO reservacion_productos (id, id_reservacion, id_producto) Values(?,?,?)";
         LocalDate fechaActual = LocalDate.now();
         String fecha = fechaActual.format(DateTimeFormatter.ofPattern("ddMMyy"));
-        // Generar un número aleatorio de 4 dígitos
         Random random = new Random();
-        int numeroAleatorio = random.nextInt(9000) + 1000; // Genera un número entre 1000 y 9999
-        // Concatenar la fecha y el número aleatorio para formar el ID
+        int numeroAleatorio = random.nextInt(9000) + 1000;
         int id = parseInt(fecha) + numeroAleatorio;
         try {
             ps = conexion.prepareStatement(q);
@@ -171,7 +166,5 @@ public class OperacionBD {
         
     }
     
-   
     
 }
- 

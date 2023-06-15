@@ -10,6 +10,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="datos.OperacionBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    OperacionBD operacion = new OperacionBD();
+     operacion.conectar();
+    %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -36,78 +40,95 @@
                         <li><a href="reservaciones.html">Reservaciones</a></li>
                     </ul>
                 </nav> 
-        
+                
             </div>                       
         </header>
 
-
         <main>
-            <div class="Ventana">
+            <div class="ventana">
                 
-                <div class="seleccion">
-                    <h2>Reservaciones</h2>
-                    <input type="button" value="Constultar reservacion">
-                    <input type="button" value="Hacer una reservacion">
+                <div id="seleccion">
+                    <h2>Bienvenido</h2>
+                    <button class="consulta">Consultar</button>
+                    <button class="reservacion">Reservar</button>
                 </div>
                 
-                <div class="consulta">
+                
+                
+                
+                
+                
+                <div id="consulta" class="div-oculto">
+                    
                     <h2>Consulta de reservaciones</h2>
                     <form action="datos_cliente">
-                        <label id="descripcion" for="idReserva">ID de la reservacion</label>
+                        <label for="idReserva">ID de la reservación</label>
                         <input type="text" id="idReserva" required>
                         <input class="enviar" type="submit" value="Consultar">
+                        
                     </form>
                     <%
                         
-                        
-                        
-                    %>
+                        %>
+                    
+                    <button class="volver_c">VOLVER</button>
                 </div>
-                <div class="reservacion">
-                    <div class="datos del cliente">
+                
+                        
+                        
+                        
+                        
+                        
+                <div id="reservacion" class="div-oculto">
+                    
+                    <div class="datosDelCliente">
                         <h2>Datos del cliente</h2>
                         <form action="datos_cliente">
-                            <label id="descripcion" for="nombreyapellido">Nombre y Apelldo</label>
+                            <label for="nombreyapellido">Nombre y Apellido</label>
                             <input type="text" id="nombreyapellido" required>
-                            <label id="descripcion" for="telefono">Telefono</label>
+                            <label for="telefono">Teléfono</label>
                             <input type="tel" id="telefono" required>
                         </form>
                     </div>
-                    <div class="SeleccionEstilista">
+                    
+                    <div class="SeleccionEstilista" class="div-oculto">
                         <ul>
-                        <%
-                            OperacionBD operacion = new OperacionBD();
-                            ArrayList<Estilista> estilistas = operacion.consultarEstilistas();
-                            for (Estilista estilista : estilistas) {
-                                int id = estilista.getId();
-                                String nombre = estilista.getNombre();
-                                Time horario = estilista.getHorario();
-                                out.println("<li><div class='tarjeta'<img src='imagenes/"+id+"'"+"><h2>" + nombre + "</h2><p>Horario: " + horario + "</p><input type='button' value='Seleccionar'></div></li>");
-                            }
-                        %>
+                            <%
+                                
+                                
+                                ArrayList<Estilista> estilistas = operacion.consultarEstilistas();
+                                
+                                for(Estilista estilista: estilistas){
+                                    out.print("<li><img src='imagenes/"+estilista.getId()+".jpg'><h2>"+estilista.getNombre()+"</h2><h2>"+estilista.getHorario()+"</h2><li>");
+                                }
+                        
+                             %>
                         </ul>
                     </div>
-
-                    <div class="SeleccionServicio">
+                    
+                    <div class="SeleccionServicio" class="div-oculto">
+                        <!-- Aquí va el código para mostrar los servicios -->
                     </div>
-
-                    <div class="SeleccionHorario">
+                    
+                    <div class="SeleccionHorario" class="div-oculto">
+                        <!-- Aquí va el código para mostrar los horarios -->
                     </div>
-
-
+                    <button class="volver_r">VOLVER</button>
+                    <button class="siguiente">SIGUIENTE</button>
                 </div>
-
-            </div>
-
-
-            
+                        
+                        
+                        
         </main>
 
-
-    <footer>
-        <img src="imagenes/logo-blanco.png" alt="Logo de la barber">
-        <p>© 2023 Barber Shop. Todos los derechos reservados.</p>
-    </footer>
+        <footer>
+            <img src="imagenes/logo-blanco.png" alt="Logo de la barber">
+            <p>© 2023 Barber Shop. Todos los derechos reservados.</p>
+        </footer>
+        <script src="java.js"></script>
     </body>
 
 </html>
+<%
+     operacion.desconectar();
+    %>
