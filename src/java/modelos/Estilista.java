@@ -5,33 +5,74 @@
  */
 package modelos;
 
-import java.sql.Time;
 
 /**
  *
  * @author alber
  */
 public class Estilista {
-    private int id;
+    
+    private String email;
     private String nombre;
-    private Time horario;
+    private String apellido;
+    private String contraseña;
+    private String estado;
+    private String horario;
+    
 
     public Estilista() {
     }
 
-    public Estilista(int id, String nombre, Time horario) {
-        this.id = id;
+    public Estilista(String email, String nombre, String apellido, String contraseña, String estado, String horario) {
+        this.email = email;
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.contraseña = contraseña;
+        this.estado = estado;
         this.horario = horario;
     }
 
-    public int getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+   
     
     public String getNombre() {
         return nombre;
@@ -41,13 +82,7 @@ public class Estilista {
         this.nombre = nombre;
     }
 
-    public Time getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Time horario) {
-        this.horario = horario;
-    }
+    
     
     
 }

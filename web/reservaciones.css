@@ -45,6 +45,15 @@ main{
     border: 4px solid #000000;
     background:#181818;
 }
+
+div form button{
+    width: 60px;
+    height: 30px;
+}
+
+div{
+    display: block;
+}
 .div-oculto{
     display:none;
 }

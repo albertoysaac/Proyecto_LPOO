@@ -26,7 +26,7 @@
         <p>Los mejores productos</p>
         <div class="banner-btn">
             <a href="reservaciones.jsp"><span></span>Reserva</a>
-            <a href="#"><span></span>Productos</a>
+            <a href="c_Empleados.jsp"><span></span>Login</a>
         </div>
     </div>
 </section>
@@ -71,7 +71,7 @@
         <iframe width="640" height="360" src="https://www.youtube.com/embed/8pWtdanVz3I" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
-  
+
     
 </section>
     
@@ -88,7 +88,7 @@
                 <h3>Cortes de Cabello</h3>
                 <hr>
                 <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
-                   encontrar el corte de cabello perfecto para ti.</p>
+                encontrar el corte de cabello perfecto para ti.</p>
             </div>
         </div>
         <div class="single-service">
@@ -125,7 +125,7 @@
                 <h3>Cortes de Cabello</h3>
                 <hr>
                 <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
-                   encontrar el corte de cabello perfecto para ti.</p>
+                encontrar el corte de cabello perfecto para ti.</p>
             </div>
         </div>
         <div class="single-service">
@@ -155,7 +155,7 @@
                 <p>----------------------------------------------------</p>
             </div>
         </div>
-   
+    
 </section>   
     
     
@@ -178,7 +178,7 @@
     <p>+525575925995<i class="fa fa-phone"></i></p>
 </div>    
 </div>    
- 
+
 <div class="social-links">
     <i class="fa fa-facebook"></i>
     <i class="fa fa-instagram"></i>
@@ -188,6 +188,6 @@
 </div>
     
 </section>   
- 
+
 </body>
 </html>
