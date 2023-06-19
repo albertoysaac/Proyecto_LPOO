@@ -1,101 +1,193 @@
 <%-- 
     Document   : index
-    Created on : 8/06/2023, 01:50:23 AM
-    Author     : alber
+    Created on : 20/06/2023, 03:50:23 AM
+    Author     : Equipo 2
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<html lang="es">
+<html>
+<head>
+    <title>Barber Shop Website Design - Easy Tutorials</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+<section id="banner">
+    <img src="images/logo.png" class="logo">
+    <div class="banner-text">
+        <h1>Gornik & Drucker Barbery</h1>
+        <p>Los mejores productos</p>
+        <div class="banner-btn">
+            <a href="reservaciones.jsp"><span></span>Reserva</a>
+            <a href="#"><span></span>Productos</a>
+        </div>
+    </div>
+</section>
     
-    <head>
-
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width">
-        <title>Barbería Alura</title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Noto+Serif:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
-    
-    </head>
-
-    <body>
-
-        <header>
-            <div class="encabezado">
-
-                <div class="contenedor_img">
-                    <img src="imagenes/logo.png" alt="Logo de la barber">
-                </div>
-
-                <nav class="menu">
-                    <ul>
-                        <li><a href="index.jsp">Inicio</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="reservaciones.jsp">Reservaciones</a></li>
-                    </ul>
-                </nav> 
-        
-            </div> 
-        </header>
-        <main>
-            <img id="banner" src="banner/banner.jpg">
-            <div class="gradiente">
-                <section class="principal">
-
-                    <h2 class="titulo-centralizado">Sobre la Barbería Alura</h2>
-
-                    <img class="utensilios" src="imagenes/utensilios.jpg" alt="utensilios de barberia">
-
-                    <p>Ubicada en el corazón de la ciudad, la <strong>Barbería Alura</strong> trae para el mercado lo que hay de mejor para su cabello y barba. Fundada en 2020, la Barbería Alura ya es destaque en la ciudad y conquista nuevos clientes diariamente.</p>
-
-                    <p id="mision"><em>Nuestra misión es: <strong>"Proporcionar autoestima y calidad de vida a nuestros clientes"</strong>.</em></p>
-
-                    <p>Ofrecemos profesionales experimentados que están constantemente observando los cambios y movimiento en el mundo de la moda, para así ofrecer a nuestros clientes las últimas tendencias. El atendimiento posee un padrón de excelencia y agilidad, garantizando calidad y satisfacción de nuestros clientes.</p> 
-
-                </section>
-
-                <section class="mapa">
-                    <h2 class="titulo-principal">Nuestra Ubicacion</h2>
-                    <p>Nos encontramos ubicados en el corazon de la ciudad</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7524.993431953112!2d-99.13539240621205!3d19.43413965383354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1685392457853!5m2!1ses-419!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
-                </section>
-
-                <section class="diferenciales">
-
-                    <h3 class="titulo-centralizado">Diferenciales</h3>
-                    <div class="contenido">
-                        <ul class="lista-diferenciales">
-                            <li class="items">Atención personalizada a los clientes</li>
-                            <li class="items">Profesesionales calificados</li>
-                            <li class="items">Espacio diferenciado</li>
-                            <li class="items">Localización</li>
-                            <li class="items">Puntualidad</li>
-                            <li class="items">Tecnologia</li>
-                            <li class="items">Limpieza</li>
-                        </ul>
-                        
-                        <img src="diferenciales/diferenciales.jpg" class="imagenDiferenciales">
-                    </div>
-                </section>
-
-                <section>
-                    <div class="video">
-                        <iframe width="auto" height="315" src="https://www.youtube.com/embed/8pWtdanVz3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </section>
+<section id="feature">
+<div class="title-text">
+<p>CONOCENOS</p>    
+<h1>Que es lo que nos caracteriza</h1>
+</div> 
+<div class="feature-box">
+    <div class="features">
+        <h1>Personal Experimentado</h1>
+        <div class="features-desc">
+            <div class="feature-icon">
+                <i class="fa fa-shield"></i>
             </div>
-        </main>
-        <footer>
-            <img src="imagenes/logo-blanco.png" alt="Logo de la barber">
-            <p>© 2023 Barber Shop. Todos los derechos reservados.</p>
-        </footer>
-        
-    </body>
-
+            <div class="feature-text">
+                <p>Nuestra barberia cuenta con el mejor personal, cada uno con años.</p>
+            </div>
+        </div>
+        <h1>Reservar en Linea</h1>
+        <div class="features-desc">
+            <div class="feature-icon">
+                <i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="feature-text">
+                <p>Haz tu reservacion a traves de nuestra pagina.</p>
+            </div>
+        </div>
+        <h1>Los Mejores Productos</h1>
+        <div class="features-desc">
+            <div class="feature-icon">
+                <i class="fa fa-inr"></i>
+            </div>
+            <div class="feature-text">
+                <p>Nuestros productos son desarrollados con el cliente siempre en el centro y están formulados utilizando solo las mejores mezclas de esencias naturales.
+                    Nuestra línea de productos para el afeitado y el cabello, brindan lo mejor de lo mejor..</p>
+            </div>
+        </div>
+    <div>
+    <div class="features-img">
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/8pWtdanVz3I" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+  
+    
+</section>
+    
+<section id="service">
+    <div class="title-text">
+    <p>SERVICIOS</p>    
+    <h1>NUESTOS SERVICIOS</h1>
+    </div>
+    <div class="service-box">
+        <div class="single-service">
+            <img src="images/pic-1.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>Cortes de Cabello</h3>
+                <hr>
+                <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
+                   encontrar el corte de cabello perfecto para ti.</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-2.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>Corte de Barba</h3>
+                <hr>
+                <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-3.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>-------------------------</h3>
+                <hr>
+                <p>----------------------------</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-4.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>-------------------------------------------</h3>
+                <hr>
+                <p>----------------------------------------------------</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-1.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>Cortes de Cabello</h3>
+                <hr>
+                <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
+                   encontrar el corte de cabello perfecto para ti.</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-2.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>Corte de Barba</h3>
+                <hr>
+                <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-3.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>-------------------------</h3>
+                <hr>
+                <p>----------------------------</p>
+            </div>
+        </div>
+        <div class="single-service">
+            <img src="images/pic-4.jpg">
+            <div class="overlay"></div>
+            <div class="service-desc">
+                <h3>-------------------------------------------</h3>
+                <hr>
+                <p>----------------------------------------------------</p>
+            </div>
+        </div>
+   
+</section>   
+    
+    
+<section id="footer">
+    <img src="images/footer-img.png" class="footer-img">
+    <div class="title-text">
+    <p>CONTACTO</p>    
+    <h1>Visitanos Hoy</h1>
+    </div>
+<div class="footer-row">
+<div class="footer-left">
+    <h1>Horario</h1>
+    <p><i class="fa fa-clock-o"></i>Lunes a Viernes - 9am to 9pm</p>
+    <p><i class="fa fa-clock-o"></i>Sabados y Domingos - 8am to 11pm</p>
+</div>    
+<div class="footer-right">
+    <h1>Ubicacion</h1>
+    <p>Av Sor Juana Inés de La Cruz 22-interior 4a, Tlalnepantla Centro, 54000 Tlalnepantla de Baz, Méx.<i class="fa fa-map-marker"></i></p>
+    <p>barbershop@website.com<i class="fa fa-paper-plane"></i></p>
+    <p>+525575925995<i class="fa fa-phone"></i></p>
+</div>    
+</div>    
+ 
+<div class="social-links">
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-instagram"></i>
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-youtube-play"></i>
+    <p>© 2023 Barber Shop. Todos los derechos reservados.</p>
+</div>
+    
+</section>   
+ 
+</body>
 </html>
