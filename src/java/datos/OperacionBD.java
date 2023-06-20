@@ -314,7 +314,48 @@ public class OperacionBD {
 
     
     
-    /*Consulta de servicios*/
+   public ArrayList<Reservacion> consultarReservacionPorEmpleado(String email) {
+    ArrayList<Reservacion> reservaciones = new ArrayList<>();
+    PreparedStatement ps;
+    String q = "\"SELECT r.id_r AS id_reservacion, c.nombre AS nombre_cliente, c.telefono, r.horario, p.descripcion AS productos \" +\n" +
+"                           \"FROM reservaciones r \" +\n" +
+"                           \"INNER JOIN clientes c ON r.cliente = c.email \" +\n" +
+"                           \"INNER JOIN reservacion_productos rp ON r.id_r = rp.id_reservacion \" +\n" +
+"                           \"INNER JOIN productos p ON rp.id_producto = p.id_producto \" +\n" +
+"                           \"INNER JOIN estilistas e ON r.estilista = e.email \" +\n" +
+"                           \"WHERE e.email = '?'\";";
+    ResultSet rs;
+    
+    try {
+        ps = conexion.prepareStatement(q);
+        ps.setString(1, email);
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Reservacion res = new Reservacion();
+            int idReservacion = rs.getInt("id_reservacion");
+                String nombreCliente = rs.getString("nombre_cliente");
+                String telefono = rs.getString("telefono");
+                String horario = rs.getString("horario");
+                String productos = rs.getString("productos");
+                
+                res.setId(idReservacion);
+                res.setNomCliente(nombreCliente);
+                res.setTelefono(telefono);
+                res.setHorario(horario);
+                res.setProductos(productos);
+            reservaciones.add(res);
+        }
+
+        rs.close();
+        ps.close();
+    } catch (SQLException ex) {
+        System.out.println("Error al consultar estilistas: " + ex.getMessage());
+    }
+
+    return reservaciones;
+}
+  
     
     
     
