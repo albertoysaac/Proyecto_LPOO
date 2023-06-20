@@ -105,6 +105,7 @@ nav ul li a{
     }
 }
 
+
 #feature{
     width: 100%;
     padding: 70px 0;
@@ -170,7 +171,7 @@ nav ul li a{
     text-align: initial;
 }
 @media screen and (max-width: 770px){
-   .title-text h1{
+    .title-text h1{
         font-size: 35px;
     }
     .features{
@@ -336,14 +337,18 @@ hr{
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            width: 100%;
+            min-height: 60vh;
         }
 
-        form {
+        #formulario {
+            width: 70%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
             background-color: aqua;
             background-color: rgba(0, 0, 0, .25);
             border-radius: 10px;
-            padding: 40px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -369,14 +374,20 @@ hr{
             color: #fff;
         }
         
-        input[type="password"], input[type="text"] {
+        input[type="password"], input[type="text"], input[type="email"]{
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 250px;
             margin-bottom:5px;
-            font-size: 1px;
+            font-size: 16px;
             color: #fff;
+        }
+        
+        .label{
+            font-size: 20px;
+            margin-bottom: 10px;
+            color:#fff;
         }
 
         button {
@@ -418,10 +429,112 @@ hr{
             text-align: center;
         }
 #banner2{
+    display: flex;
     background: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/17.jpeg);
     background-size: cover;
     background-position: center;
     height: 100vh;
+}
+.titulo{
+    text-align: center;
+    color: #fff;
+    padding-bottom: 30px;
+}
+.formulario{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulario .div{
+    display: flex;
+    width: 100%;
+    height: 130px;
+    position: relative;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    flex-direction: column;
+    align-items: center;
+}
+#input{
+    width: 60%;
+    max-width: 500PX;
+    height: 18px;
+    border-radius: 0%;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.formulario .div:first-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+.formulario .div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+.buton_iniciar_sesion{
+    margin: 0;
+    width: 90%;
+    height: 80%;
+    height: 50px;
+    background: #051ad893;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 15px;
+}
+.formulario2{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulario2 .div{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.buton_registro{
+    margin: 0;
+    width: 90%;
+    height: 80%;
+    height: 50px;
+    background: #051ad893;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 15px;
 }
 .logo{
     width: 260px;

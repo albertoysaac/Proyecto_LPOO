@@ -1,67 +1,41 @@
-<%-- 
-    Document   : login
-    Created on : 19/06/2023, 04:19:39 PM
-    Author     : alber
---%>
-
+<%@page import="modelos.Reservacion"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelos.Estilista"%>
 <%@page import="datos.OperacionBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
+<%    
     OperacionBD operacion = new OperacionBD();
     operacion.conectar();
-    
-    String correoUsuario = (String) request.getAttribute("email");
+    HttpSession sesion = request.getSession();
+    String email =(String) sesion.getAttribute("email");
+    ArrayList<Reservacion> lista = new ArrayList<>();
     %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Iniciar sesión o Registrarse</title>
-    <link rel="stylesheet" href="estilos.css">
-   
-</head>
-<body>
-    
-    <div id="reservacion" class="div-oculto">
+
+    <html>
+        <body>
+            <div class="tablaR">
+                <table border width="800">
+                <tr>
+                <th>ID de reservacion</th><th>Nombre del cliente</th><th>Telefono</th><th>Horario</th><th>Productos</th>
+                </tr>
+
+                <%
+                    lista= operacion.consultarReservacionPorEmpleado(email);
+
+                    for(Reservacion reservacion : lista){
+                    out.print("<tr><td>"+reservacion.getId()+"</td>");
+                    out.print("<td>"+reservacion.getNomCliente()+"</td>");
+                    out.print("<td>"+reservacion.getTelefono()+"</td>");
+                    out.print("<td>"+reservacion.getHorario()+"</td>");
+                    out.print("<td>"+reservacion.getProductos()+"</td></tr>");
+                }  
+                %>
+                </table>
+            </div>
+                <div 
                     
-                    <div class="SeleccionEstilista" class="div-oculto">
-                        <ul>
-                            <%
-                                
-                                
-                                ArrayList<Estilista> estilistas = operacion.consultarEstilistas();
-                                request.setAttribute("estilistas", estilistas);
-                                        
-                                for (Estilista estilista : estilistas) {
-                                  out.print("<li class='estilista' name='"+estilista.getEmail()+"'>");
-                                  out.print("<h2>"+ estilista.getNombre() + "</h2>");
-                                  out.print("<h2>" + estilista.getHorario() + "</h2>");
-                                  out.print("</li>");
-                                }
-                            %>
-                        </ul>
-                    </div>
-                    
-                    <div class="SeleccionServicio" class="div-oculto">
                         
-                        <%
-                                             
-                        %>
-                        
-                    </div>
-                    
-                    <div class="SeleccionHorario" class="div-oculto">
-                        <!-- Aquí va el código para mostrar los horarios -->
-                    </div>
-                        
-                    <button class="volver_r">VOLVER</button>
-                    
-                    
-                </div>
-    
-</body>
-</html>
+        </body>
+    </html> 
         
 

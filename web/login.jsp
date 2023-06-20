@@ -40,9 +40,13 @@
                         if(email != null && !email.isEmpty() && contraseña != null && !contraseña.isEmpty()){
                             
                             if(email.contains("@barberia.com")&& operacion.validarCredencialesEstilista(email, contraseña)){
-                                request.setAttribute("email", email);
+                                
+                                HttpSession sesion = request.getSession();
+                                sesion.setAttribute("email", email);
                                 response.sendRedirect("control.jsp");
                             }else if(operacion.validarCredencialesCliente(email, contraseña)){
+                                HttpSession sesion = request.getSession();
+                                sesion.setAttribute("email", email);
                                 response.sendRedirect("homeCliente.jsp");
                             }else {
                                 out.print("mamaste: correo o contraseña invalidos");
@@ -80,6 +84,8 @@
                             cliente.setSexo(sexo);
                             
                             operacion.agregarCliente(cliente);
+                            HttpSession sesion = request.getSession();
+                            sesion.setAttribute("email", email);
                             response.sendRedirect("homeCliente.jsp");
                         }
                         
