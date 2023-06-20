@@ -19,6 +19,7 @@
 
     <body>
 
+
         <section id="feature">
             <div class="title-text">
                 <p>CONOCENOS</p>    
@@ -64,7 +65,7 @@
         <section id="service">
             <div class="title-text">
             <p>SERVICIOS</p>    
-            <h1>NUESTOS SERVICIOS</h1>
+            <h1>NUESTROS SERVICIOS</h1>
             </div>
             <div class="service-box">
                 <div class="single-service">
@@ -144,7 +145,14 @@
 
         </section>   
 
-
+   <section id="banner3">
+    <div class="banner3-text">
+        <h1>Haz tu Reserva</h1>
+        <div class="banner3-btn">
+            <a href="reservaciones.jsp"><span></span>Reserva</a>
+        </div>
+    </div>
+</section>
         <section id="footer">
             <img src="images/footer-img.png" class="footer-img">
             <div class="title-text">
@@ -176,4 +184,4 @@
         </section>   
 
     </body>
-</html
+</html>
