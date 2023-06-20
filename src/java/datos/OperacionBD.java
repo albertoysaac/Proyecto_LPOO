@@ -8,9 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Random;
 import modelos.Cliente;
 import modelos.Estilista;
 import modelos.Producto;
@@ -122,8 +120,8 @@ public class OperacionBD {
             } catch (SQLException ex){
                 System.out.println("Error al cerrar el ResultSet y PreparedStatement: " + ex.getMessage());
             }
-          }
-          return credencialesValidas;
+        }
+        return credencialesValidas;
         }
     
     
@@ -265,10 +263,10 @@ public class OperacionBD {
 
     }
 
-   
+    
     /*Bloque de consultas a la tabla Reservaciones*/
             
-    public int reservacionp1(Cliente cliente, Estilista estilista, String horario) {
+    public int reservacionp1(String cliente, String estilista, String horario) {
     PreparedStatement ps;
     String q = "INSERT INTO reservaciones (cliente, estilista, horario) VALUES (?, ?, ?)";
     int id_r = 0;
@@ -276,8 +274,8 @@ public class OperacionBD {
 
     try {
         ps = conexion.prepareStatement(q, Statement.RETURN_GENERATED_KEYS);
-        ps.setString(1, cliente.getEmail());
-        ps.setString(2, estilista.getEmail());
+        ps.setString(1, cliente);
+        ps.setString(2, estilista);
         ps.setString(3, horario);
         ps.executeUpdate();
         rs = ps.getGeneratedKeys();
@@ -308,8 +306,8 @@ public class OperacionBD {
         rs = ps.executeQuery();
 
         while (rs.next()) {
-               cliente=rs.getString("cliente");
-               cant=Double.parseDouble(rs.getString("total_gastado"));
+            cliente=rs.getString("cliente");
+            cant=Double.parseDouble(rs.getString("total_gastado"));
         }
 
         rs.close();
@@ -319,33 +317,29 @@ public class OperacionBD {
     }
 
 
-       return "El cliente que mas ha gastado es "+cliente+" con una cantidad de:$"+cant;
-     }
+        return "El cliente que mas ha gastado es "+cliente+" con una cantidad de:$"+cant;
+    }
 
     
     /*Bloque de consultas a la tabla Reservacion_Productos*/
     
-    public int reservacionp2(int id_r, int id_p) {
+    public boolean reservacionp2(int id_r, int id_p) {
+        boolean estado = false;
     PreparedStatement ps;
-    String q = "INSERT INTO reservacion_productos (id, id_reservacion, id_producto) VALUES (?, ?, ?)";
-    LocalDate fechaActual = LocalDate.now();
-    String fecha = fechaActual.format(DateTimeFormatter.ofPattern("ddMMyy"));
-    Random random = new Random();
-    int numeroAleatorio = random.nextInt(9000) + 1000;
-    int id = Integer.parseInt(fecha) + numeroAleatorio;
-
+    String q = "INSERT INTO reservacion_productos (id, id_reservacion, id_producto) VALUES (?, ?)";
+    
     try {
         ps = conexion.prepareStatement(q);
-        ps.setInt(1, id);
-        ps.setInt(2, id_r);
-        ps.setInt(3, id_p);
+        ps.setInt(1, id_r);
+        ps.setInt(2, id_p);
         ps.executeUpdate();
+        estado = true;
         ps.close();
     } catch (SQLException ex) {
         System.out.println("Error al agregar la reserva de productos: " + ex.getMessage());
     }
 
-    return id;
+    return estado;
 }
     
     
@@ -353,7 +347,7 @@ public class OperacionBD {
     public ArrayList<Reservacion> consultarReservacionesPorEmailCliente(String emailCliente) {
     ArrayList<Reservacion> reservaciones = new ArrayList<>();
     PreparedStatement ps;
-    String query = "SELECT r.id_r AS id_reservacion, c.nombre AS nombre_cliente, c.telefono, r.horario, p.descripcion AS productos FROM reservaciones r INNER JOIN clientes c ON r.cliente = c.email INNER JOIN reservacion_productos rp ON r.id_r = rp.id_reservacion INNER JOIN productos p ON rp.id_producto = p.id_p WHERE c.email = ? ;";
+    String query = "SELECT r.id_r AS id_reservacion, e.nombre AS nombre_estilista, r.horario, p.descripcion AS productos FROM reservaciones r INNER JOIN clientes c ON r.cliente = c.email INNER JOIN reservacion_productos rp ON r.id_r = rp.id_reservacion INNER JOIN productos p ON rp.id_producto = p.id_p INNER JOIN estilistas e ON r.estilista = e.email WHERE c.email = ?;";
     ResultSet rs;
     
     try {
@@ -364,11 +358,9 @@ public class OperacionBD {
         while (rs.next()) {
             Reservacion reservacion = new Reservacion();
             reservacion.setId(rs.getInt("id_reservacion"));
-            reservacion.setNomCliente(rs.getString("nombre_cliente"));
-            reservacion.setTelefono(rs.getString("telefono"));
-            reservacion.setNomEstilista(rs.getString("estilista"));
+            reservacion.setNomEstilista(rs.getString("nombre_estilista"));
             reservacion.setHorario(rs.getString("horario"));
-            reservacion.setProductos(rs.get);
+            reservacion.setProductos(rs.getString("productos"));
             // ... Resto de los campos de la reservación
 
             reservaciones.add(reservacion);
@@ -382,6 +374,9 @@ public class OperacionBD {
 
     return reservaciones;
 }
+    public Reservacion serviciosXreservacion(){
+        
+    } 
 
     
     public Reservacion consultarReservacion(String idReservacion) {
@@ -422,7 +417,7 @@ public class OperacionBD {
 
     
     
-   public ArrayList<Reservacion> consultarReservacionPorEmpleado(String email) {
+    public ArrayList<Reservacion> consultarReservacionPorEmpleado(String email) {
     ArrayList<Reservacion> reservaciones = new ArrayList<>();
     PreparedStatement ps;
     String q = "SELECT r.id_r AS id_reservacion, c.nombre AS nombre_cliente, c.telefono, r.horario, p.descripcion AS productos FROM reservaciones r INNER JOIN clientes c ON r.cliente = c.email INNER JOIN reservacion_productos rp ON r.id_r = rp.id_reservacion INNER JOIN productos p ON rp.id_producto = p.id_p INNER JOIN estilistas e ON r.estilista = e.email WHERE e.email = ?;";
@@ -458,8 +453,8 @@ public class OperacionBD {
     return reservaciones;
 }
 
-   
- public String contarSexoClientes(String email){
+
+public String contarSexoClientes(String email){
     PreparedStatement ps;
     String q = "SELECT SUM(CASE WHEN c.sexo = 'Hombre' THEN 1 ELSE 0 END) AS hombres, SUM(CASE WHEN c.sexo = 'Mujer' THEN 1 ELSE 0 END) AS mujeres, SUM(CASE WHEN c.sexo NOT IN ('Hombre', 'Mujer') THEN 1 ELSE 0 END) AS otros FROM reservaciones r INNER JOIN clientes c ON r.cliente = c.email WHERE r.estilista = ?;";
     ResultSet rs;
@@ -470,9 +465,9 @@ public class OperacionBD {
         rs = ps.executeQuery();
 
         while (rs.next()) {
-             hombres = Integer.parseInt(rs.getString("hombres"));
-             mujeres = Integer.parseInt(rs.getString("otros"));
-             otros = Integer.parseInt(rs.getString("mujeres"));
+            hombres = Integer.parseInt(rs.getString("hombres"));
+            mujeres = Integer.parseInt(rs.getString("otros"));
+            otros = Integer.parseInt(rs.getString("mujeres"));
         }
 
         rs.close();
@@ -482,8 +477,8 @@ public class OperacionBD {
     }
 
 
-       return "Hombres: "+hombres+" Mujeres: "+mujeres+" Otros: "+otros;
-  }
+        return "Hombres: "+hombres+" Mujeres: "+mujeres+" Otros: "+otros;
+    }
  
 public String selecProductoPop(String email){
     PreparedStatement ps;
@@ -498,8 +493,8 @@ public String selecProductoPop(String email){
         rs = ps.executeQuery();
 
         while (rs.next()) {
-               servicio=rs.getString("producto");
-               cant=Integer.parseInt(rs.getString("cantidad"));
+            servicio=rs.getString("producto");
+            cant=Integer.parseInt(rs.getString("cantidad"));
         }
 
         rs.close();
@@ -509,9 +504,61 @@ public String selecProductoPop(String email){
     }
 
 
-       return "El servicio mas pedido es: "+servicio+" con una cantidad de: "+cant;
-     }  
+        return "El servicio mas pedido es: "+servicio+" con una cantidad de: "+cant;
+    }  
     
-    
+    public ArrayList<String> consultarHorariosDisponiblesEstilista(String emailEstilista) {
+    ArrayList<String> horariosDisponibles = new ArrayList<>();
+    PreparedStatement ps;
+    ResultSet rs;
+
+    // Obtener la fecha actual
+    LocalDate fechaActual = LocalDate.now();
+
+    // Construir la consulta SQL para obtener los horarios disponibles en el día
+    String query = "SELECT DISTINCT horario FROM reservaciones WHERE estilista = ? AND DATE(horario) = ?";
+
+    try {
+        ps = conexion.prepareStatement(query);
+        ps.setString(1, emailEstilista);
+        ps.setDate(2, java.sql.Date.valueOf(fechaActual));
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            String horario = rs.getString("horario");
+            horariosDisponibles.add(horario);
+        }
+
+        rs.close();
+        ps.close();
+    } catch (SQLException ex) {
+        System.out.println("Error al consultar horarios disponibles: " + ex.getMessage());
+    }
+
+    return horariosDisponibles;
+}
+
+    public int obtenerUltimaReservacionId() {
+    int idReservacion = -1;
+    String query = "SELECT MAX(id_r) AS last_id FROM reservaciones";
+    Statement st;
+    ResultSet rs;
+    try {
+        
+        
+        st = conexion.createStatement();
+        rs = st.executeQuery(query);
+        
+        if (rs.next()) {
+            idReservacion = rs.getInt("last_id");
+        }
+        rs.close();
+        st.close();
+        conexion.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return idReservacion;
+}
     
 }

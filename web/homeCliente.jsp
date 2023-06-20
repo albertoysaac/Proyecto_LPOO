@@ -4,8 +4,14 @@
     Author     : alber
 --%>
 
+<%@page import="datos.OperacionBD"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelos.Reservacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    OperacionBD operacion = new OperacionBD();
+    operacion.conectar();
+    
     HttpSession sesion = request.getSession();
     String email =(String) sesion.getAttribute("email");
 %>
@@ -32,6 +38,22 @@
         </div>
     </div>
 </section>
+        <section id="consultarReservaciones">
+            <div class="seccionConsulta">
+                <%
+                    ArrayList<Reservacion> lista = new ArrayList<>();
+                    lista= operacion.consultarReservacionesPorEmailCliente(email);
+                    for(Reservacion reservacion : lista){
+                        out.print("<div class='reservacion'>"
+                                + "<h2 class='id'>ID de reservacion: " + reservacion.getId() + "</h2>"
+                                + "<p class='nombre'> Estilista: " + reservacion.getNomEstilista() + "</p>"
+                                + "<p class='horario'>Horario: " + reservacion.getHorario() + "</p>"
+                                + "<p class='productos'>Productos: " + reservacion.getProductos() + "</p>"
+                                + "</div>");
+                    }
+                %>
+            </div>
+        </section>
 
         <section id="service">
             <div class="title-text">

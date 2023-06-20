@@ -18,20 +18,21 @@ public class Reservacion {
     private String servicio;
     public String telefono;
     private String horario;
-    private String productos;
+    
+   
     
     public Reservacion() {
        
     }
 
-    public Reservacion(int id, String nomCliente, String nomEstilista, String telefono, String servicio, String horario,String productos) {
+    public Reservacion(int id, String nomCliente, String nomEstilista, String telefono, String servicio, String horario) {
         this.id = id;
         this.nomCliente = nomCliente;
         this.nomEstilista = nomEstilista;
         this.telefono = telefono;
         this.servicio = servicio;
         this.horario = horario;
-        this.productos = productos;
+        
         
     }
     
@@ -45,7 +46,7 @@ public class Reservacion {
         this.nomCliente = nomCliente;
     }
 
-    public String getNomestilista() {
+    public String getNomEstilista() {
         return nomEstilista;
     }
 
@@ -68,8 +69,8 @@ public class Reservacion {
         return servicio;
     }
 
-    public void setProductos(String productos) {
-        this.servicio = productos;
+    public void setProductos(String servicio) {
+        this.servicio = servicio;
     }
 
     public String getHorario() {
@@ -95,6 +96,7 @@ public class Reservacion {
     public void setServicio(String servicio) {
         this.servicio = servicio;
     }
+    
 
     @Override
     public String toString() {
