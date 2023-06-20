@@ -12,7 +12,6 @@
 <html>
     
     <head>
-        <title>Barber Shop Website Design - Easy Tutorials</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +34,7 @@
 
         <section id="service">
             <div class="title-text">
+            <%-- Mostrar los servicios que ofrecemos --%>
             <p>SERVICIOS</p>    
             <h1>NUESTROS SERVICIOS</h1>
             </div>
@@ -59,78 +59,83 @@
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="images/pic-3.jpg">
+                    <img src="images/masm.jpg">
                     <div class="overlay"></div>
                     <div class="service-desc">
-                        <h3>-------------------------</h3>
+                        <h3>Mascarilla</h3>
                         <hr>
-                        <p>----------------------------</p>
+                        <p>Nos enorgullece ofrecer una experiencia única y especializada en el cuidado y embellecimiento de tu rostro a través de una amplia gama de mascarillas. Nuestro objetivo es proporcionarte un momento de relajación y bienestar, 
+                           mientras te brindamos los beneficios para tu piel que solo las mascarillas pueden ofrecer. </p>
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="images/pic-4.jpg">
+                    <img src="images/asa.jpg">
                     <div class="overlay"></div>
                     <div class="service-desc">
-                        <h3>-------------------------------------------</h3>
+                        <h3>Tinte de Cabello</h3>
                         <hr>
-                        <p>----------------------------------------------------</p>
+                        <p>Te invitamos a explorar una amplia gama de tintes para el cabello que te permitirán expresar tu estilo personal y transformar tu apariencia de manera emocionante. 
+                           Estamos comprometidos en ofrecerte productos de calidad y resultados excepcionales, para que puedas lograr el look que siempre has deseado.</p>
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="images/pic-1.jpg">
+                    <img src="images/des.png">
                     <div class="overlay"></div>
                     <div class="service-desc">
-                        <h3>Cortes de Cabello</h3>
+                        <h3>Permanente</h3>
                         <hr>
-                        <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
-                        encontrar el corte de cabello perfecto para ti.</p>
+                        <p>Ya sea que estés buscando un peinado elegante para una ocasión especial, un corte moderno y a la moda, o simplemente desees un cambio de imagen completo, estamos listos para ayudarte a lograr tus objetivos. 
+                            Nuestros estilistas son expertos en técnicas de peinado vanguardistas y están al tanto de las últimas tendencias y estilos de la industria.</p>
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="images/pic-2.jpg">
+                    <img src="images/pro.jpg">
                     <div class="overlay"></div>
                     <div class="service-desc">
-                        <h3>Corte de Barba</h3>
+                        <h3>Peinado Profesional</h3>
                         <hr>
                         <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="images/pic-3.jpg">
+                    <img src="images/man.png">
                     <div class="overlay"></div>
                     <div class="service-desc">
-                        <h3>-------------------------</h3>
+                        <h3>Manicura</h3>
                         <hr>
-                        <p>----------------------------</p>
+                        <p>Ofrecemos una amplia gama de servicios de manicura, desde manicura clásica hasta técnicas avanzadas de diseño de uñas. 
+                            Ya sea que desees un aspecto elegante y sofisticado, o algo más atrevido y creativo, nuestro equipo de manicuristas expertos está capacitado en una variedad de estilos y tendencias actuales.</p>
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="images/pic-4.jpg">
+                    <img src="images/pe.png">
                     <div class="overlay"></div>
                     <div class="service-desc">
-                        <h3>-------------------------------------------</h3>
+                        <h3>Pedicura</h3>
                         <hr>
-                        <p>----------------------------------------------------</p>
+                        <p>Ofrecemos una amplia gama de servicios de pedicura, diseñados para atender las necesidades específicas de tus pies. Desde pedicuras clásicas hasta tratamientos especializados, 
+                           nuestro equipo de pedicuristas expertos se asegurará de que tus pies se sientan renovados y hermosos.</p>
                     </div>
                 </div>
-
+                </div>
         </section>   
 
    
         <section id="footer">
+            <%-- Mostrar el footer --%>
             <img src="images/footer-img.png" class="footer-img">
             <div class="title-text">
             <p>CONTACTO</p>    
-            <h1>Visitanos Hoy</h1>
+            <h1>Visítanos Hoy</h1>
             </div>
         <div class="footer-row">
         <div class="footer-left">
             <h1>Horario</h1>
             <p><i class="fa fa-clock-o"></i>Lunes a Viernes - 9am to 9pm</p>
-            <p><i class="fa fa-clock-o"></i>Sabados y Domingos - 8am to 11pm</p>
+            <p><i class="fa fa-clock-o"></i>Sábados y Domingos - 8am to 11pm</p>
         </div>    
         <div class="footer-right">
-            <h1>Ubicacion</h1>
+            <h1>Ubicación</h1>
             <p>Av Sor Juana Inés de La Cruz 22-interior 4a, Tlalnepantla Centro, 54000 Tlalnepantla de Baz, Méx.<i class="fa fa-map-marker"></i></p>
             <p>barbershop@website.com<i class="fa fa-paper-plane"></i></p>
             <p>+525575925995<i class="fa fa-phone"></i></p>
