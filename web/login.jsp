@@ -40,6 +40,7 @@
                         if(email != null && !email.isEmpty() && contraseña != null && !contraseña.isEmpty()){
                             
                             if(email.contains("@barberia.com")&& operacion.validarCredencialesEstilista(email, contraseña)){
+                                request.setAttribute("email", email);
                               response.sendRedirect("control.jsp");
                             }else if(operacion.validarCredencialesCliente(email, contraseña)){
                                 response.sendRedirect("homeCliente.jsp");
