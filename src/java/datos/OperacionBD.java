@@ -155,10 +155,11 @@ public class OperacionBD {
     ArrayList<Cliente> clientes = new ArrayList<>();
     Statement st;
     String q = "SELECT * FROM clientes";
-
+    ResultSet rs;
+    
     try {
         st = conexion.createStatement();
-        ResultSet rs = st.executeQuery(q);
+        rs = st.executeQuery(q);
 
         while (rs.next()) {
             Cliente cliente = new Cliente();
@@ -168,6 +169,7 @@ public class OperacionBD {
             cliente.setContraseña(rs.getString("contraseña"));
             cliente.setDireccion(rs.getString("direccion"));
             cliente.setTelefono(rs.getString("telefono"));
+            cliente.setSexo(rs.getString("sexo"));
             clientes.add(cliente);
         }
 
@@ -190,10 +192,11 @@ public class OperacionBD {
     ArrayList<Estilista> estilistas = new ArrayList<>();
     Statement st;
     String q = "SELECT * FROM estilistas";
-
+    ResultSet rs;
+    
     try {
         st = conexion.createStatement();
-        ResultSet rs = st.executeQuery(q);
+        rs = st.executeQuery(q);
 
         while (rs.next()) {
             Estilista estilista = new Estilista();

@@ -39,7 +39,7 @@
                             if(email.contains("@barberia.com")&& operacion.validarCredencialesEstilista(email, contraseña)){
                               response.sendRedirect("control.jsp");
                             }else if(operacion.validarCredencialesCliente(email, contraseña)){
-                                response.sendRedirect("index.jsp");
+                                response.sendRedirect("homeCliente.jsp");
                             }else {
                                 out.print("mamaste: correo o contraseña invalidos");
                             }
@@ -76,7 +76,7 @@
                             cliente.setSexo(sexo);
                             
                             operacion.agregarCliente(cliente);
-                            
+                            response.sendRedirect("homeCliente.jsp");
                         }
                         
             }
