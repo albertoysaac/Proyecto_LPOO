@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    HttpSession sesion = request.getSession();
+    String email =(String) sesion.getAttribute("email");
+%>
 <html>
     
     <head>
@@ -20,47 +24,14 @@
     <body>
 
 
-        <section id="feature">
-            <div class="title-text">
-                <p>CONOCENOS</p>    
-                <h1>Que es lo que nos caracteriza</h1>
-            </div> 
-        <div class="feature-box">
-            <div class="features">
-                <h1>Personal Experimentado</h1>
-                <div class="features-desc">
-                    <div class="feature-icon">
-                        <i class="fa fa-shield"></i>
-                    </div>
-                    <div class="feature-text">
-                        <p>Nuestra barberia cuenta con el mejor personal, cada uno con años.</p>
-                    </div>
-                </div>
-                <h1>Reservar en Linea</h1>
-                <div class="features-desc">
-                    <div class="feature-icon">
-                        <i class="fa fa-check-square-o"></i>
-                    </div>
-                    <div class="feature-text">
-                        <p>Haz tu reservacion a traves de nuestra pagina.</p>
-                    </div>
-                </div>
-                <h1>Los Mejores Productos</h1>
-                <div class="features-desc">
-                    <div class="feature-icon">
-                        <i class="fa fa-inr"></i>
-                    </div>
-                    <div class="feature-text">
-                        <p>Nuestros productos son desarrollados con el cliente siempre en el centro y están formulados utilizando solo las mejores mezclas de esencias naturales.
-                            Nuestra línea de productos para el afeitado y el cabello, brindan lo mejor de lo mejor..</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="features-img">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/8pWtdanVz3I" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-           </section>
+        <section id="banner3">
+    <div class="banner3-text">
+        <h1>Haz tu Reserva</h1>
+        <div class="banner3-btn">
+            <a href="reservaciones.jsp"><span></span>Reserva</a>
+        </div>
+    </div>
+</section>
 
         <section id="service">
             <div class="title-text">
@@ -145,14 +116,7 @@
 
         </section>   
 
-   <section id="banner3">
-    <div class="banner3-text">
-        <h1>Haz tu Reserva</h1>
-        <div class="banner3-btn">
-            <a href="reservaciones.jsp"><span></span>Reserva</a>
-        </div>
-    </div>
-</section>
+   
         <section id="footer">
             <img src="images/footer-img.png" class="footer-img">
             <div class="title-text">

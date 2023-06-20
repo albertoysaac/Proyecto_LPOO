@@ -1,3 +1,4 @@
+<%@page import="modelos.Producto"%>
 <%@page import="modelos.Reservacion"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelos.Estilista"%>
@@ -32,7 +33,62 @@
                 %>
                 </table>
             </div>
-                <div 
+                <div>
+
+                <%
+                    out.print("<h2>"+operacion.contarSexoClientes(email)+"</h2>");
+                    %>
+
+
+
+            </div>
+
+                    <div>
+
+                <%
+                    out.print("<h2>"+operacion.selecProductoPop(email)+"</h2>");
+                    %>
+
+
+
+            </div>
+                <div>
+                <h2>Agregar Servicio</h2>
+               <form action="agregarProducto.jsp" method ="post">
+                    ID producto <input type="text" name="idP" size="15"></br></br>
+                   Descripcion : <input type="text" name="desc" size="15"></br></br>
+                  Precio: <input type="text" name="precio" size="15"></br></br>
+
+                   <input type="submit" value="Agregar">
+               </form>
+
+           </div>
+
+                    <div>
+                        <table border width="800">
+               <tr>
+               <th>ID del Servicio</th><th>Descripcion</th><th>Precio</th>
+               </tr>
+         <%
+
+            ArrayList<Producto> listap = new ArrayList<>();
+            listap= operacion.consultarProductos("Select * from productos;");
+            for(Producto producto : listap){
+            out.print("<tr><td>"+producto.getId()+"</td>");
+            out.print("<td>"+producto.getDescripcion()+"</td>");
+            out.print("<td>"+producto.getPrecio()+"</td></tr>");
+        }
+
+           %>
+                        </table>
+                    </div>
+                        
+                     <div>
+                    <%
+                    out.print("<h2>"+operacion.calcularDineroCliente(email)+"</h2>");
+                    %>
+
+            </div>
                     
                         
         </body>

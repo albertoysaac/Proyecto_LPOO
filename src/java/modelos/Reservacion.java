@@ -18,18 +18,21 @@ public class Reservacion {
     private String servicio;
     public String telefono;
     private String horario;
-
+    private String productos;
+    
     public Reservacion() {
        
     }
 
-    public Reservacion(int id, String nomCliente, String nomEstilista, String telefono, String servicio, String horario) {
+    public Reservacion(int id, String nomCliente, String nomEstilista, String telefono, String servicio, String horario,String productos) {
         this.id = id;
         this.nomCliente = nomCliente;
         this.nomEstilista = nomEstilista;
         this.telefono = telefono;
         this.servicio = servicio;
         this.horario = horario;
+        this.productos = productos;
+        
     }
     
     
