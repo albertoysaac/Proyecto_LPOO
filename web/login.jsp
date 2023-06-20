@@ -21,23 +21,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Iniciar sesión o Registrarse</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style.css">
     <script src="formulario.js"></script>
 </head>
 <body>
+    <section id="banner2">
+    <img src="images/logo.png" class="logo">
+
     <div id="formulario">        
             
         <script>mostrarFormulario('login');</script>
         
         <%
-           
+
             if(request.getMethod().equalsIgnoreCase("post")){
                         String email = request.getParameter("email");
                         String contraseña = request.getParameter("contrasena");
                         if(email != null && !email.isEmpty() && contraseña != null && !contraseña.isEmpty()){
                             
                             if(email.contains("@barberia.com")&& operacion.validarCredencialesEstilista(email, contraseña)){
-                              response.sendRedirect("control.jsp");
+                                request.setAttribute("email", email);
+                                response.sendRedirect("control.jsp");
                             }else if(operacion.validarCredencialesCliente(email, contraseña)){
                                 response.sendRedirect("homeCliente.jsp");
                             }else {
@@ -86,6 +90,7 @@
         
         
     </div>
+        </section>
 </body>
 </html>
 

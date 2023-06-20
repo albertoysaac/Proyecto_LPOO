@@ -8,10 +8,11 @@
 <%@page import="modelos.Estilista"%>
 <%@page import="datos.OperacionBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%    
+<%
     OperacionBD operacion = new OperacionBD();
     operacion.conectar();
     
+    String correoUsuario = (String) request.getAttribute("email");
     %>
 <!DOCTYPE html>
 <html>
@@ -28,6 +29,8 @@
                     <div class="SeleccionEstilista" class="div-oculto">
                         <ul>
                             <%
+                                
+                                
                                 ArrayList<Estilista> estilistas = operacion.consultarEstilistas();
                                 request.setAttribute("estilistas", estilistas);
                                         
@@ -44,7 +47,7 @@
                     <div class="SeleccionServicio" class="div-oculto">
                         
                         <%
-                                                
+                                             
                         %>
                         
                     </div>

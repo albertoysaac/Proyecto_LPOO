@@ -2,13 +2,13 @@ function mostrarFormulario(formulario) {
     if (formulario === 'login') {
         document.getElementById('formulario').innerHTML = `
             <h2>Iniciar sesión</h2>
-            <form action="" method="post">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" name="contrasena" required>
-                    <button type="submit" value="Iniciar sesión">Iniciar sesión</button>
-               
+            <form class='formulario' action="" method="post">
+                    <label class='label' for="email">Email:</label>
+                    <input class='inputemail' type="email" id="email" name="email" required>
+                    <label class='label' for="contrasena">Contraseña:</label>
+                    <input class='contra' type="password" id="contrasena" name="contrasena" required>
+                    <button class='buton_iniciar_sesion' type="submit" value="Iniciar sesión">Iniciar sesión</button>
+
                     <p>¿No tienes una cuenta? <a href="javascript:void(0);" onclick="mostrarFormulario('registro')">Regístrate aquí</a></p>
                 
             </form>
