@@ -54,9 +54,9 @@
                         }
                     %>
                 </ul>
-                <button class="continuar" type="submit" class="volver_c">Continuar</button>
+                <button id="btncontinuar" type="submit" class="volver_c">Continuar</button>
             </div>
-            <div id="SeleccionServicio" class="SeleccionEstilista" class="div-oculto">
+            <div id="SeleccionServicio" class="div-oculto">
                 <h2>Selecciona un servicio</h2>
                 <ul class="tarjetasS">
                     <%  
@@ -71,10 +71,10 @@
                         }
                     %>
                 </ul>
-                <button class="continuar" type="submit" class="volver_c">Continuar</button>
+                <button id="btncontinuar" type="submit" class="volver_c">Continuar</button>
             </div>
                 
-            <div id="SeleccionHorario">
+            <div id="SeleccionHorario" class="div-oculto">
                 <h2>Selecciona un horario</h2>    
                 <form class="horarios" action="reservaciones.jsp" method="post">
                     <label for="hora">Hora: </label>
@@ -85,14 +85,15 @@
             
             <%
                 String estilista = request.getParameter("emailEstilista");
-                int servicio = Integer.parseInt(request.getParameter("productoSeleccionado"));
+                String servicio = request.getParameter("productoSeleccionado");
                 String horario = request.getParameter("hora");
                 int idReservacion = operacion.obtenerUltimaReservacionId();
-                if (estilista != null && !estilista.isEmpty() && servicio != null && !servicio.isEmpty() && horario != null && !horario.isEmpty()) {
+                
+                if (estilista != null && !estilista.isEmpty() && servicio != null && !servicio.isEmpty()) {
                     operacion.reservacionp1(email, estilista, horario);
-                    
-                    operacion.reservacionp2(idReservacion, servicio);
+                    operacion.reservacionp2(idReservacion, Integer.parseInt(servicio));
                     out.print("Email del estilista seleccionado: " + estilista);
+                    
                 } else {
                     out.print("No se ha seleccionado ningún estilista.");
                 }

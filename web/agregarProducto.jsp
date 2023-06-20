@@ -19,3 +19,7 @@
             %>
     </body>
 </html>
+
+<select name="horario" id="horario">
+    <option value=""></option>
+</select>

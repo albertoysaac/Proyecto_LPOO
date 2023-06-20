@@ -656,6 +656,9 @@ hr{
     align-items: center;
 
 }
+div-oculto{
+    display: none;
+}
 
 .tarjetasE{
     width: 100%;
@@ -679,7 +682,8 @@ hr{
     align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-.div-oculto{
-    display: none;
+
+.ventana_r .SeleccionHorario #hora{
+    color: black;
 }
 

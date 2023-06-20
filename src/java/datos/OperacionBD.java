@@ -373,10 +373,7 @@ public class OperacionBD {
     }
 
     return reservaciones;
-}
-    public Reservacion serviciosXreservacion(){
-        
-    } 
+} 
 
     
     public Reservacion consultarReservacion(String idReservacion) {
