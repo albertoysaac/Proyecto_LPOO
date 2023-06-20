@@ -21,10 +21,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Iniciar sesión o Registrarse</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="style.css">
     <script src="formulario.js"></script>
 </head>
 <body>
+    <section id="banner2">
+    <img src="images/logo.png" class="logo">
+
     <div id="formulario">        
             
         <script>mostrarFormulario('login');</script>
@@ -86,6 +89,7 @@
         
         
     </div>
+        </section>
 </body>
 </html>
 
