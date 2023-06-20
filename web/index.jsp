@@ -9,7 +9,6 @@
 
 <html>
 <head>
-    <title>Barber Shop Website Design - Easy Tutorials</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,18 +19,19 @@
 </head>
 <body>
 <section id="banner">
+    <%-- Mostrar el banner y nombre de la barberia --%>
     <img src="images/logo.png" class="logo">
     <div class="banner-text">
         <h1>Gornik & Drucker Barbery</h1>
         <p>Los mejores productos</p>
         <div class="banner-btn">
-            <a href="reservaciones.jsp"><span></span>Reserva</a>
             <a href="login.jsp"><span></span>Login</a>
         </div>
     </div>
 </section>
     
 <section id="feature">
+    <%-- Mostrar nuestras caracterizticas --%>
 <div class="title-text">
 <p>CONOCENOS</p>    
 <h1>Que es lo que nos caracteriza</h1>
@@ -68,97 +68,99 @@
         </div>
     <div>
     <div class="features-img">
-        <iframe width="640" height="360" src="https://www.youtube.com/embed/8pWtdanVz3I" frameborder="0" allowfullscreen></iframe>
+        <div align="center">
+        <iframe width="640" height="260" src="https://www.youtube.com/embed/8pWtdanVz3I" frameborder="0" allowfullscreen></iframe>
+    </div>
     </div>
 </div>
-
+  
     
 </section>
-    
+ <%-- Mostrar los servicio que ofrecemos --%>   
 <section id="service">
-    <div class="title-text">
-    <p>SERVICIOS</p>    
-    <h1>NUESTOS SERVICIOS</h1>
-    </div>
-    <div class="service-box">
-        <div class="single-service">
-            <img src="images/pic-1.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>Cortes de Cabello</h3>
-                <hr>
-                <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
-                encontrar el corte de cabello perfecto para ti.</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-2.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>Corte de Barba</h3>
-                <hr>
-                <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-3.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>-------------------------</h3>
-                <hr>
-                <p>----------------------------</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-4.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>-------------------------------------------</h3>
-                <hr>
-                <p>----------------------------------------------------</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-1.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>Cortes de Cabello</h3>
-                <hr>
-                <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
-                encontrar el corte de cabello perfecto para ti.</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-2.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>Corte de Barba</h3>
-                <hr>
-                <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-3.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>-------------------------</h3>
-                <hr>
-                <p>----------------------------</p>
-            </div>
-        </div>
-        <div class="single-service">
-            <img src="images/pic-4.jpg">
-            <div class="overlay"></div>
-            <div class="service-desc">
-                <h3>-------------------------------------------</h3>
-                <hr>
-                <p>----------------------------------------------------</p>
-            </div>
-        </div>
-    
+                <div class="service-box">
+                <div class="single-service">
+                    <img src="images/pic-1.jpg">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Cortes de Cabello</h3>
+                        <hr>
+                        <p>Nuestro equipo de expertos estilistas te proporcionará descripciones detalladas de cada estilo, acompañadas de imágenes inspiradoras para ayudarte a 
+                        encontrar el corte de cabello perfecto para ti.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/pic-2.jpg">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Corte de Barba</h3>
+                        <hr>
+                        <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/masm.jpg">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Mascarilla</h3>
+                        <hr>
+                        <p>Nos enorgullece ofrecer una experiencia única y especializada en el cuidado y embellecimiento de tu rostro a través de una amplia gama de mascarillas. Nuestro objetivo es proporcionarte un momento de relajación y bienestar, 
+                           mientras te brindamos los beneficios para tu piel que solo las mascarillas pueden ofrecer. </p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/asa.jpg">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Tinte de Cabello</h3>
+                        <hr>
+                        <p>Te invitamos a explorar una amplia gama de tintes para el cabello que te permitirán expresar tu estilo personal y transformar tu apariencia de manera emocionante. 
+                           Estamos comprometidos en ofrecerte productos de calidad y resultados excepcionales, para que puedas lograr el look que siempre has deseado.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/des.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Permanente</h3>
+                        <hr>
+                        <p>Ya sea que estés buscando un peinado elegante para una ocasión especial, un corte moderno y a la moda, o simplemente desees un cambio de imagen completo, estamos listos para ayudarte a lograr tus objetivos. 
+                            Nuestros estilistas son expertos en técnicas de peinado vanguardistas y están al tanto de las últimas tendencias y estilos de la industria.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/pro.jpg">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Peinado Profesional</h3>
+                        <hr>
+                        <p> Nuestro equipo de expertos en cuidado de la barba te brinda una guía completa sobre los cortes más populares y las tendencias más recientes en el mundo del cuidado facial masculino.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/man.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Manicura</h3>
+                        <hr>
+                        <p>Ofrecemos una amplia gama de servicios de manicura, desde manicura clásica hasta técnicas avanzadas de diseño de uñas. 
+                            Ya sea que desees un aspecto elegante y sofisticado, o algo más atrevido y creativo, nuestro equipo de manicuristas expertos está capacitado en una variedad de estilos y tendencias actuales.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="images/pe.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>Pedicura</h3>
+                        <hr>
+                        <p>Ofrecemos una amplia gama de servicios de pedicura, diseñados para atender las necesidades específicas de tus pies. Desde pedicuras clásicas hasta tratamientos especializados, 
+                           nuestro equipo de pedicuristas expertos se asegurará de que tus pies se sientan renovados y hermosos.</p>
+                    </div>
+                </div>
+                </div>
 </section>   
     
-    
+ <%-- Mostrar el footer de la pagina --%>   
 <section id="footer">
     <img src="images/footer-img.png" class="footer-img">
     <div class="title-text">
@@ -178,7 +180,7 @@
     <p>+525575925995<i class="fa fa-phone"></i></p>
 </div>    
 </div>    
-
+ 
 <div class="social-links">
     <i class="fa fa-facebook"></i>
     <i class="fa fa-instagram"></i>
@@ -188,6 +190,6 @@
 </div>
     
 </section>   
-
+ 
 </body>
 </html>
