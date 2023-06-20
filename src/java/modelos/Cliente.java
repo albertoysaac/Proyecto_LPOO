@@ -16,17 +16,19 @@ public class Cliente {
         private String contraseña;
         private String direccion;
         private String telefono;
+        private String sexo;
 
     public Cliente() {
     }
 
-    public Cliente(String email, String nombre, String apellido, String contraseña, String direccion, String telefono) {
+    public Cliente(String email, String nombre, String apellido, String contraseña, String direccion, String telefono, String sexo) {
         this.email = email;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contraseña = contraseña;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.sexo = sexo;
     }
 
     public String getEmail() {
@@ -40,6 +42,7 @@ public class Cliente {
     public String getApellido() {
         return apellido;
     }
+    
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -78,5 +81,13 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-       
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    
 }

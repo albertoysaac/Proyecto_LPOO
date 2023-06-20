@@ -26,22 +26,24 @@
 
     <body> 
 
-        <header>
-            <div class="header-box">
-                
-                <h1><img src="imagenes/logo.png" alt="Logo de la barber"></h1>
-                
-                <nav class="menu">
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="reservaciones.html">Reservaciones</a></li>
-                    </ul>
-                </nav> 
-                
-            </div>                       
-        </header>
+        <section id="banner">
+    <img src="images/logo.png" class="logo">
+    <div class="banner-text">
+        <h1>Gornik & Drucker Barbery</h1>
+        <p>Los mejores productos</p>
+        <div class="banner-btn">
+            <a href="reservaciones.jsp"><span></span>Reserva</a>
+            <a href="login.jsp"><span></span>Login</a>
+        </div>
+    </div>
+</section>
 
+        
+        
+        
+        
+        
+        
         <main>
             <div class="ventana">
                 
@@ -93,35 +95,6 @@
                         
                 <div id="reservacion" class="div-oculto">
                     
-                    <div class="datosDelCliente">
-                        <h2>Datos del cliente</h2>
-                        <form action="" method="post" >
-                            <label for="nombreyapellido">Nombre y Apellido</label>
-                            <input type="text" name="nombreyapellido" required>
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" name="telefono" required>
-                            <button class="siguiente" type="submit" value="SIGUIENTE"></button>
-                        </form>
-                        <%
-                            
-                            if(request.getMethod().equalsIgnoreCase("post")){
-                                String nya = request.getParameter("nombreyapellido");
-                                String telefono = request.getParameter("telefono");
-
-                                if(nya != null && !nya.isEmpty() && telefono != null && !telefono.isEmpty() ){
-                                    Cliente cliente = new Cliente();
-                                    cliente.setNombre(nya);
-                                    cliente.setTelefono(telefono);
-                                    operacion.agregarCliente(cliente);
-                                }
-                            }
-                            
-                        %>
-                    </div>
-                    
-                    
-                    
-                    
                     <div class="SeleccionEstilista" class="div-oculto">
                         <ul>
                             <%
@@ -159,10 +132,35 @@
                         
         </main>
 
-        <footer>
-            <img src="imagenes/logo-blanco.png" alt="Logo de la barber">
-            <p>© 2023 Barber Shop. Todos los derechos reservados.</p>
-        </footer>
+        <section id="footer">
+    <img src="images/footer-img.png" class="footer-img">
+    <div class="title-text">
+    <p>CONTACTO</p>    
+    <h1>Visitanos Hoy</h1>
+    </div>
+<div class="footer-row">
+<div class="footer-left">
+    <h1>Horario</h1>
+    <p><i class="fa fa-clock-o"></i>Lunes a Viernes - 9am to 9pm</p>
+    <p><i class="fa fa-clock-o"></i>Sabados y Domingos - 8am to 11pm</p>
+</div>    
+<div class="footer-right">
+    <h1>Ubicacion</h1>
+    <p>Av Sor Juana Inés de La Cruz 22-interior 4a, Tlalnepantla Centro, 54000 Tlalnepantla de Baz, Méx.<i class="fa fa-map-marker"></i></p>
+    <p>barbershop@website.com<i class="fa fa-paper-plane"></i></p>
+    <p>+525575925995<i class="fa fa-phone"></i></p>
+</div>    
+</div>    
+
+<div class="social-links">
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-instagram"></i>
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-youtube-play"></i>
+    <p>© 2023 Barber Shop. Todos los derechos reservados.</p>
+</div>
+    
+</section>
         <script src="java.js"></script>
     </body>
 

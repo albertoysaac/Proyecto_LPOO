@@ -13,16 +13,16 @@ public class Producto {
     private int id;
     private String descripcion;
     private double precio;
-    private int stock;
+    
 
     public Producto() {
     }
 
-    public Producto(int id, String descripcion, double precio, int stock) {
+    public Producto(int id, String descripcion, double precio) {
         this.id = id;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.stock = stock;
+        
     }
 
     public int getId() {
@@ -49,14 +49,7 @@ public class Producto {
         this.precio = precio;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
+    
     @Override
     public String toString() {
         return "Producto: " +  descripcion + " precio=" + precio;

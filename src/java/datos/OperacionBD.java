@@ -132,7 +132,7 @@ public class OperacionBD {
     public boolean agregarCliente(Cliente cliente) {
     boolean estado = false;
     PreparedStatement ps;
-    String q = "INSERT INTO clientes (email, nombre, apellido, contraseña, direccion, telefono) VALUES (?, ?, ?, ?, ?, ?)";
+    String q = "INSERT INTO clientes  VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     try {
         ps = conexion.prepareStatement(q);
@@ -142,6 +142,7 @@ public class OperacionBD {
         ps.setString(4, cliente.getContraseña());
         ps.setString(5, cliente.getDireccion());
         ps.setString(6, cliente.getTelefono());
+        ps.setString(7, cliente.getSexo());
         ps.executeUpdate();
         estado = true;
     } catch (SQLException ex) {

@@ -26,7 +26,7 @@
         <p>Los mejores productos</p>
         <div class="banner-btn">
             <a href="reservaciones.jsp"><span></span>Reserva</a>
-            <a href="c_Empleados.jsp"><span></span>Login</a>
+            <a href="login.jsp"><span></span>Login</a>
         </div>
     </div>
 </section>
