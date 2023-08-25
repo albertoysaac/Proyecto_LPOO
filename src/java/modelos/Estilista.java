@@ -16,7 +16,8 @@ public class Estilista {
     private String apellido;
     private String contraseña;
     private String estado;
-    private String horario;
+    private String horarioEntrada;
+    private String horarioSalida;
 
     /**
      * Crea una instancia de Estilista sin inicializar los atributos.
@@ -32,7 +33,7 @@ public class Estilista {
      * @param apellido   El apellido del estilista.
      * @param contraseña La contraseña del estilista.
      * @param estado     El estado del estilista (activo, inactivo, etc.).
-     * @param horario    El horario de trabajo del estilista.
+     * @param horario    El horarioEntrada de trabajo del estilista.
      */
     public Estilista(String email, String nombre, String apellido, String contraseña, String estado, String horario) {
         this.email = email;
@@ -40,7 +41,7 @@ public class Estilista {
         this.apellido = apellido;
         this.contraseña = contraseña;
         this.estado = estado;
-        this.horario = horario;
+        this.horarioEntrada = horario;
     }
 
     /**
@@ -116,22 +117,30 @@ public class Estilista {
     }
 
     /**
-     * Obtiene el horario de trabajo del estilista.
+     * Obtiene el horarioEntrada de trabajo del estilista.
      * 
-     * @return El horario de trabajo del estilista.
+     * @return El horarioEntrada de trabajo del estilista.
      */
-    public String getHorario() {
-        return horario;
+    public String getHorarioEntrada() {
+        return horarioEntrada;
     }
 
     /**
-     * Establece el horario de trabajo del estilista.
+     * Establece el horarioEntrada de trabajo del estilista.
      * 
-     * @param horario El horario de trabajo del estilista.
+     * @param horarioEntrada El horarioEntrada de trabajo del estilista.
      */
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHorarioEntrada(String horarioEntrada) {
+        this.horarioEntrada = horarioEntrada;
     }
+    
+    
+    public String getHorarioSalida(){
+        String salida;
+        salida = this.getHorarioEntrada();
+        salida += "08:00:00";
+        return salida;
+    } 
 
     /**
      * Obtiene el nombre del estilista.

@@ -41,13 +41,13 @@
             <div class="seccionConsulta">
                 <%
                     ArrayList<Reservacion> lista = new ArrayList<>();
-                    lista= operacion.consultarReservacionesPorEmailCliente(email);
+                    lista = operacion.consultarReservacionesPorEmailCliente(email);
                     for(Reservacion reservacion : lista){
                         out.print("<div class='reservacion'>"
                                 + "<h2 class='id'>ID de reservacion: " + reservacion.getId() + "</h2>"
-                                + "<p class='nombre'> Estilista: " + reservacion.getNomEstilista() + "</p>"
+                                + "<p class='nombre'> Estilista: " + reservacion.getEstilista().getNombre() +" "+ reservacion.getEstilista().getApellido()+ "</p>"
                                 + "<p class='horario'>Horario: " + reservacion.getHorario() + "</p>"
-                                + "<p class='productos'>Productos: " + reservacion.getProductos() + "</p>"
+                                + "<p class='productos'>Productos: " + reservacion.getServicios() + "</p>"
                                 + "</div>");
                     }
                 %>

@@ -21,7 +21,7 @@
 
 <html>
 <body>
-    <section id="banner4">
+    <section id="banner3">
         <div class="container">
             <div class="tablaR">            
                 <div class="title2-text">    

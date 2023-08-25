@@ -26,77 +26,74 @@
 </head>
 <body>
     <section id="banner2">
-    <img src="images/logo.png" class="logo">
-
-    <div id="formulario">        
+        <img src="images/logo.png" class="logo">
+        <div id="formulario">        
             
-        <script>mostrarFormulario('login');</script>
-        
-        <%
+            <script>mostrarFormulario('login');</script>
+            <%
+                if(request.getMethod().equalsIgnoreCase("post")){
+                    String email = request.getParameter("email");
+                    String contraseña = request.getParameter("contrasena");
 
-            if(request.getMethod().equalsIgnoreCase("post")){
-                        String email = request.getParameter("email");
-                        String contraseña = request.getParameter("contrasena");
-                        if(email != null && !email.isEmpty() && contraseña != null && !contraseña.isEmpty()){
+                    if(email != null && !email.isEmpty() && contraseña != null && !contraseña.isEmpty()){
+                        
+                        if(email.contains("@barberia.com")&& operacion.validarCredencialesEstilista(email, contraseña)){
                             
-                            if(email.contains("@barberia.com")&& operacion.validarCredencialesEstilista(email, contraseña)){
+                            Estilista estilista = new Estilista();
+                            estilista.setEmail(email);
+                            HttpSession sesion = request.getSession();
+                            sesion.setAttribute("estilista", estilista);
+                            response.sendRedirect("control.jsp");
+                        }else if(operacion.validarCredencialesCliente(email, contraseña)){
+                            Cliente usuario = new Cliente();
+                            usuario.setEmail(email);
+                            HttpSession sesion = request.getSession();
+                            sesion.setAttribute("usuario", usuario);
+                            response.sendRedirect("homeCliente.jsp");
+                        }else {
+                            
+                            out.print("<script>alerta();</script>");
+                            
+                        }
+                    }
+                }
+                
+                if(request.getMethod().equalsIgnoreCase("post")){
+                    String nombre = request.getParameter("nombre");
+                    String apellido = request.getParameter("apellido");
+                    String email = request.getParameter("email_registro");
+                    String contraseña = request.getParameter("contrasena_registro");
+                    String direccion = request.getParameter("direccion");
+                    String telefono = request.getParameter("telefono");
+                    String sexo = request.getParameter("sexo");
+                            
+                            if(nombre !=null && !nombre.isEmpty() 
+                            && apellido !=null && !apellido.isEmpty()
+                            && email != null && !email.isEmpty()
+                            && contraseña != null && !contraseña.isEmpty()
+                            && direccion != null && !direccion.isEmpty()
+                            && telefono != null && !telefono.isEmpty()
+                            && sexo != null && !sexo.isEmpty()){
                                 
-                                HttpSession sesion = request.getSession();
-                                sesion.setAttribute("email", email);
-                                response.sendRedirect("control.jsp");
-                            }else if(operacion.validarCredencialesCliente(email, contraseña)){
+                                Cliente cliente = new Cliente();
+                                cliente.setEmail(email);
+                                cliente.setNombre(nombre);
+                                cliente.setApellido(apellido);
+                                cliente.setContraseña(contraseña);
+                                cliente.setDireccion(direccion);
+                                cliente.setTelefono(telefono);
+                                cliente.setSexo(sexo);
+                                
+                                operacion.agregarCliente(cliente);
                                 HttpSession sesion = request.getSession();
                                 sesion.setAttribute("email", email);
                                 response.sendRedirect("homeCliente.jsp");
-                            }else {
-                                out.print("mamaste: correo o contraseña invalidos");
                             }
-                        }
-                        
-            }
-            
-
-
-            if(request.getMethod().equalsIgnoreCase("post")){
-                String nombre = request.getParameter("nombre");
-                String apellido = request.getParameter("apellido");
-                String email = request.getParameter("email_registro");
-                String contraseña = request.getParameter("contrasena_registro");
-                String direccion = request.getParameter("direccion");
-                String telefono = request.getParameter("telefono");
-                String sexo = request.getParameter("sexo");
-                        
-                        if(nombre !=null && !nombre.isEmpty() 
-                        && apellido !=null && !apellido.isEmpty()
-                        && email != null && !email.isEmpty()
-                        && contraseña != null && !contraseña.isEmpty()
-                        && direccion != null && !direccion.isEmpty()
-                        && telefono != null && !telefono.isEmpty()
-                        && sexo != null && !sexo.isEmpty()){
                             
-                            Cliente cliente = new Cliente();
-                            cliente.setEmail(email);
-                            cliente.setNombre(nombre);
-                            cliente.setApellido(apellido);
-                            cliente.setContraseña(contraseña);
-                            cliente.setDireccion(direccion);
-                            cliente.setTelefono(telefono);
-                            cliente.setSexo(sexo);
-                            
-                            operacion.agregarCliente(cliente);
-                            HttpSession sesion = request.getSession();
-                            sesion.setAttribute("email", email);
-                            response.sendRedirect("homeCliente.jsp");
-                        }
-                        
-            }
-        %>
-        
-        
-        
-        
-    </div>
-        </section>
+                }
+            %>
+        </div>
+</section>
 </body>
 </html>
 

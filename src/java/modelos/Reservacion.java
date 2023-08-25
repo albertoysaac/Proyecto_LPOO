@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.util.ArrayList;
+
 ;
 
 /**
@@ -13,93 +15,101 @@ package modelos;
  */
 public class Reservacion {
     private int id;
-    private String nomCliente;
-    private String nomEstilista;
-    private String servicio;
-    public String telefono;
+    private Cliente cliente;
+    private Estilista estilista;
     private String horario;
+    private ArrayList<Producto> servicios;
     
-   
     
     public Reservacion() {
-       
+    
     }
 
-    public Reservacion(int id, String nomCliente, String nomEstilista, String telefono, String servicio, String horario) {
+    public Reservacion(int id, Cliente cliente, Estilista estilista, ArrayList<Producto> servicios, String horario) {
         this.id = id;
-        this.nomCliente = nomCliente;
-        this.nomEstilista = nomEstilista;
-        this.telefono = telefono;
-        this.servicio = servicio;
+        this.cliente = cliente;
+        this.estilista = estilista;
+        this.servicios = servicios;
         this.horario = horario;
-        
-        
     }
     
-    
-    
-    public String getNomCliente() {
-        return nomCliente;
-    }
-
-    public void setNomCliente(String nomCliente) {
-        this.nomCliente = nomCliente;
-    }
-
-    public String getNomEstilista() {
-        return nomEstilista;
-    }
-
-    public void setNomEstilista(String nomEstilista) {
-        this.nomEstilista = nomEstilista;
-    }
-
-    
-
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
-
-    public String getProductos() {
-        return servicio;
+    public int getId() {
+        return id;
+    }
+    
+    public Cliente getCliente(){
+        return cliente;
+    }
+    
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
+    public Estilista getEstilista() {
+        return estilista;
     }
 
-    public void setProductos(String servicio) {
-        this.servicio = servicio;
+    public void setEstilista(Estilista estilista) {
+        this.estilista = estilista;
+    }
+
+    public ArrayList<Producto> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(ArrayList<Producto> servicios) {
+        this.servicios = servicios;
     }
 
     public String getHorario() {
         return horario;
     }
 
+    public String tiempoEstimado() {
+        String tiempo = "";
+        for (Producto servicio : servicios) {
+            switch(servicio.getId()) {
+                case 10:
+                    tiempo += "01:00:00";
+                    break;
+                case 11:
+                    tiempo += "00:30:00";
+                    break;
+                case 12:
+                    tiempo += "00:30:00";
+                    break;
+                case 13:
+                    tiempo += "00:30:00";
+                    break;
+                case 14:
+                    tiempo += "02:30:00";
+                    break;
+                case 15:
+                    tiempo += "01:00:00";
+                    break;
+                case 16:
+                    tiempo += "02:30:00";
+                    break;
+                case 17:
+                    tiempo += "01:00:00";
+                    break; 
+            }
+        }
+        return tiempo;
+    }
+
     public void setHorario(String horario) {
         this.horario = horario;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(String servicio) {
-        this.servicio = servicio;
-    }
-    
-
     @Override
     public String toString() {
-        return "reservacion{" + "id=" + id + ", nomCliente=" + nomCliente + ", nomEstilista=" + nomEstilista + ", productos=" + servicio + ", horario=" + horario + '}';
+        return "reservacion{" + "id=" + id + ", nomCliente=" + cliente.getNombre() + ", nomEstilista=" + estilista.getNombre() + ", productos=" + servicios + ", horario=" + horario + '}';
 }
+
+    
 }
